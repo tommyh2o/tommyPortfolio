@@ -2,31 +2,39 @@ import React from "react";
 import "../styles.css"; // Ensure you import the CSS file
 import bobo from "../img/bobo.png";
 import outlier from "../img/outlier.jpeg"
+import amazon from "../img/amazon.jpg"
 
 const Portfolio = () => {
   const projects = [
     {
       id: 1,
-      title: "BoBo",
+      title: "BoBo - Mobile Development Intern",
       date: "April 2024 - Present",
       description: "Description of project one",
       imageUrl: bobo, // Use the correct path to your images
     },
     {
       id: 2,
-      title: "Outlier",
+      title: "Outlie - Remote Coding Expertise for AI Training - Tier 3",
       date: "May 2024 - Present",
       description: "Description of project two",
       imageUrl: outlier, // Use the correct path to your images
     },
+    {
+      id: 3,
+      title: "Amazon - Operations Intern",
+      date: "May 2023 - August 2023",
+      description: "Description of project three",
+      imageUrl: amazon,
+    }
   ];
 
   return (
     <section id="portfolio">
       <section className="section-container">
-        <h2>Portfolio</h2>
+        <h2>Work Experience</h2>
         <h4>
-          A list of all of my experience including work and projects. 
+          An up-to-date list of all of my work experiences thus far.
         </h4>
       </section>
       <div className="portfolio-grid">
