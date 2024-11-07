@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import { Parallax } from "react-parallax";
 import Header from "./components/header";
-import Portfolio from "./components/Portfolio";
+import Portfolio from "./components/portfolio";
 import About from "./components/About";
 import Contact from "./components/contact";
 import SeattleSkyline from "./img/SeattleSkyline.jpg";
