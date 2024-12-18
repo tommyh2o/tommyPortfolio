@@ -3,10 +3,11 @@ import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import { Parallax } from "react-parallax";
 import Header from "./components/header";
 import Portfolio from "./components/portfolio";
-import About from "./components/About";
+import About from "./components/about";
 import Contact from "./components/contact";
 import SeattleSkyline from "./img/SeattleSkyline.jpg";
 import profilePic from "./img/homePhoto.jpg";
+import folderPic from "./img/folder.png"
 import "./styles.css";
 
 const App = () => {
@@ -55,6 +56,19 @@ const Home = () => (
         </p>
         <Link to="/about" className="about-link">
           My about page.
+        </Link>
+      </div>
+    </section>
+
+    <section className="folder-section">
+      <img src={folderPic} alt="Folder" className="folder-photo" />
+      <div className="folder-content">
+        <h2>Portfolio</h2>
+        <p>
+          Take a look at all of my projects and work experience!
+        </p>
+        <Link to="/portfolio" className="portfolio-link">
+          My portfolio page.
         </Link>
       </div>
     </section>

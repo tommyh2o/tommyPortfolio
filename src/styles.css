@@ -74,7 +74,10 @@ nav a:hover {
   display: flex;
   align-items: center;
   gap: 20px;
-  padding: 40px;
+  padding-top: 40px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 0px;
 }
 .about-photo {
   width: 200px;
@@ -104,6 +107,33 @@ nav a:hover {
   .about-photo {
     margin-bottom: 10px;
   }
+}
+
+/* Link to portfolio section. */
+.folder-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 0px;
+}
+.folder-photo {
+  width: 200px;
+  height: auto;
+  border-radius: 10%;
+  object-fit: cover;
+}
+
+.folder-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.folder-link:hover {
+  text-decoration: underline;
 }
 
 /* Set a flexible max-width for different screen sizes */
