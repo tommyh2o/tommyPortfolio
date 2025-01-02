@@ -70,6 +70,9 @@ nav a:hover {
 
 .hero {
   border-radius: 10px;
+  margin: 0 auto;
+  padding: 1rem;
+  width: 100%;
 }
 
 /* Mini about me section. */
@@ -110,12 +113,20 @@ nav a:hover {
   .about-photo {
     margin-bottom: 10px;
   }
+
+  .folder-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+  .folder-photo {
+    margin-bottom: 10px;
+  }
 }
 
 /* Link to portfolio section. */
 .folder-section {
   display: flex;
-  flex-direction: column;
   align-items: center;
   gap: 20px;
   padding: 40px;
@@ -142,8 +153,7 @@ nav a:hover {
 
 /* Set a flexible max-width for different screen sizes */
 .container { /* Set width of the home page */
-  max-width: 1200px;
-  width: 90%;
+  max-width: 100%;
   margin: 0 auto;
 }
 
