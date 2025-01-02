@@ -115,6 +115,7 @@ nav a:hover {
 /* Link to portfolio section. */
 .folder-section {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 20px;
   padding: 40px;
