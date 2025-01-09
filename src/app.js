@@ -18,8 +18,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
+          {/* <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} /> */}
         </Routes>
       </div>
     </Router>
@@ -54,13 +54,13 @@ const Home = () => (
           for roles in fast-paced, innovative environments. Feel free to click
           the link below to learn more about my journey and skills!
         </p>
-        <Link to="/about" className="about-link">
-          My about page.
+        <Link to="/portfolio" className="about-link">
+          My portfolio page.
         </Link>
       </div>
     </section>
 
-    <section className="folder-section">
+    {/* <section className="folder-section">
       <img src={folderPic} alt="Folder" className="folder-photo" />
       <div className="folder-content">
         <h2>Portfolio</h2>
@@ -71,7 +71,7 @@ const Home = () => (
           My portfolio page.
         </Link>
       </div>
-    </section>
+    </section> */}
   </div>
 );
 
