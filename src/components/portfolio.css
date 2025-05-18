@@ -1,0 +1,222 @@
+/* Portfolio.css */
+/* Section styling */
+#portfolio {
+    padding: 4rem 2rem;
+    background-color: #f9f9f9;
+    }
+    .section-container {
+    text-align: center;
+    margin-bottom: 3rem;
+    }
+    .section-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+    }
+    .section-container h2::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 4px;
+    background: linear-gradient(90deg, #4a6cf7, #6a3bf5);
+    bottom: -10px;
+    left: 25%;
+    border-radius: 2px;
+    transform: scaleX(0);
+    animation: slideIn 1s forwards ease-out;
+    }
+    .section-container h4 {
+    color: #666;
+    font-weight: 400;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0;
+    animation: fadeIn 1s forwards ease-out 0.5s;
+    }
+    /* Portfolio grid layout */
+    .experience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    opacity: 0;
+    animation: fadeIn 1s forwards ease-out 0.8s;
+    }
+    /* Experience card styling */
+    .card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(30px);
+    }
+    .card:nth-child(1) {
+    animation: slideUp 0.6s forwards ease-out 0.9s;
+    }
+    .card:nth-child(2) {
+    animation: slideUp 0.6s forwards ease-out 1.1s;
+    }
+    .card:nth-child(3) {
+    animation: slideUp 0.6s forwards ease-out 1.3s;
+    }
+    .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+    .card-content {
+    display: flex;
+    flex-direction: column;
+    }
+    .card-image-container {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    }
+    .card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    }
+    .card:hover .card-image {
+    transform: scale(1.05);
+    }
+    .card-text {
+    padding: 1.5rem;
+    }
+    .card-text h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+    position: relative;
+    padding-bottom: 0.5rem;
+    }
+    .card-text h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, #4a6cf7, #6a3bf5);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+    }
+    .card:hover .card-text h3::after {
+    transform: scaleX(1);
+    }
+    .card-text p {
+    font-size: 0.9rem;
+    color: #4a6cf7;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    }
+    .card-text ul {
+    list-style: none;
+    padding: 0;
+    }
+    .card-text li {
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    }
+    .card-text li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #4a6cf7;
+    }
+    /* Badge styling */
+    .tech-badge {
+    display: inline-block;
+    background: #f0f4ff;
+    color: #4a6cf7;
+    font-size: 0.8rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+    }
+    .tech-badge:hover {
+    background: #4a6cf7;
+    color: white;
+    }
+    .tech-stack {
+    margin-top: 1rem;
+    }
+    /* Tag for highlighting new entries */
+    .new-tag {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: #ff6b6b;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    z-index: 2;
+    box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
+    animation: pulse 2s infinite;
+    }
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+    .portfolio-grid {
+    grid-template-columns: 1fr;
+    }
+    .card-content {
+    flex-direction: column;
+    }
+    .section-container h2 {
+    font-size: 2rem;
+    }
+    }
+    /* Animations */
+    @keyframes slideIn {
+    from {
+    transform: scaleX(0);
+    }
+    to {
+    transform: scaleX(1);
+    }
+    }
+    @keyframes fadeIn {
+    from {
+    opacity: 0;
+    }
+    to {
+    opacity: 1;
+    }
+    }
+    @keyframes slideUp {
+    from {
+    opacity: 0;
+    transform: translateY(30px);
+    }
+    to {
+    opacity: 1;
+    transform: translateY(0);
+    }
+    }
+    @keyframes pulse {
+    0% {
+    transform: scale(1);
+    }
+    50% {
+    transform: scale(1.05);
+    }
+    100% {
+    transform: scale(1);
+    }
+    }
