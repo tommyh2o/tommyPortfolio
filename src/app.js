@@ -4,9 +4,9 @@ import { Parallax } from "react-parallax";
 import { motion } from "framer-motion";
 import Header from "./components/header";
 import Portfolio from "./components/portfolio";
+import Projects from "./components/projects";
 import SeattleSkyline from "./img/SeattleSkyline.jpg";
 import profilePic from "./img/homePhoto.jpg";
-import folderPic from "./img/folder.png";
 import "./styles.css";
 
 const App = () => {
@@ -17,6 +17,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/projects" element={<Projects />} />
           {/* <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} /> */}
         </Routes>
@@ -28,21 +29,21 @@ const App = () => {
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [typingComplete, setTypingComplete] = useState(false);
-  
+
   useEffect(() => {
     setIsVisible(true);
-    
+
     // Set typing complete after the animation duration
     const timer = setTimeout(() => {
       setTypingComplete(true);
     }, 1980);
-    
+
     return () => clearTimeout(timer);
   }, []);
-  
+
   const fadeInVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
   };
 
   const skills = [
@@ -57,13 +58,13 @@ const Home = () => {
     { name: "React", level: 75, description: "Proficient" },
     { name: "SQL", level: 25, description: "Beginner" },
   ];
-  
+
   return (
     <div className="container">
       <Parallax bgImage={SeattleSkyline} strength={300}>
         <div style={{ height: "500px" }}>
           <section id="home" className="parallax-content">
-            <motion.div 
+            <motion.div
               className="hero"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -77,7 +78,9 @@ const Home = () => {
                 Hello, I'm Tommy Huynh
               </motion.h1>
               <motion.div
-                className={typingComplete ? "typewriter-complete" : "typewriter"}
+                className={
+                  typingComplete ? "typewriter-complete" : "typewriter"
+                }
                 initial={{ width: 0 }}
                 animate={{ width: "100%" }}
                 transition={{ delay: 1.5, duration: 2 }}
@@ -90,43 +93,44 @@ const Home = () => {
                 transition={{ delay: 3, duration: 1 }}
                 className="hero-buttons"
               >
-                <Link to="/portfolio" className="btn">View My Work</Link>
-                <a href="#contact" className="btn btn-outline">Contact Me</a>
+                <Link to="/portfolio" className="btn">
+                  View My Work
+                </Link>
+                <a href="#contact" className="btn btn-outline">
+                  Contact Me
+                </a>
               </motion.div>
             </motion.div>
           </section>
         </div>
       </Parallax>
 
-      <motion.section 
+      <motion.section
         className="about-section"
         initial="hidden"
         animate={isVisible ? "visible" : "hidden"}
         variants={fadeInVariants}
       >
-        <motion.img 
-          src={profilePic} 
-          alt="Tommy Q Huynh" 
+        <motion.img
+          src={profilePic}
+          alt="Tommy Q Huynh"
           className="about-photo"
           transition={{ duration: 0.3 }}
         />
         <div className="about-content">
           <motion.h2 variants={fadeInVariants}>Who am I?</motion.h2>
           <motion.p variants={fadeInVariants}>
-            Hello! I'm Tommy Huynh, a recent graduate from the University of Texas
-            at Austin (May 2024) with a strong passion for coding and software
-            development. I'm excited to break into the tech industry, especially
-            in Software Development and Engineering roles, though I'm open to
-            opportunities that fit my skills. My commitment to customer
-            satisfaction, meeting deadlines, and continuously improving my skills
-            drives me to excel in every project. I believe my eagerness to learn
-            and the experiences I've gathered so far make me a strong candidate
-            for roles in fast-paced, innovative environments.
+            Hello! I'm Tommy Huynh, a recent graduate from the University of
+            Texas at Austin (May 2024) with a strong passion for coding and
+            software development. I'm excited to break into the tech industry,
+            especially in Software Development and Engineering roles, though I'm
+            open to opportunities that fit my skills. My commitment to customer
+            satisfaction, meeting deadlines, and continuously improving my
+            skills drives me to excel in every project. I believe my eagerness
+            to learn and the experiences I've gathered so far make me a strong
+            candidate for roles in fast-paced, innovative environments.
           </motion.p>
-          <motion.div 
-            variants={fadeInVariants}
-            whileHover={{ scale: 1.05 }}
-          >
+          <motion.div variants={fadeInVariants} whileHover={{ scale: 1.05 }}>
             <Link to="/portfolio" className="btn">
               Explore My Portfolio
             </Link>
@@ -134,7 +138,7 @@ const Home = () => {
         </div>
       </motion.section>
 
-      <motion.section 
+      <motion.section
         className="skills-section"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -150,7 +154,7 @@ const Home = () => {
                 <span className="skill-percentage">{skill.description}</span>
               </div>
               <div className="skill-bar">
-                <motion.div 
+                <motion.div
                   className="skill-progress"
                   initial={{ width: 0 }}
                   whileInView={{ width: `${skill.level}%` }}
@@ -163,7 +167,8 @@ const Home = () => {
         </div>
       </motion.section>
 
-      <motion.section 
+      {/* --- Featured Projects Section --- */}
+      <motion.section
         className="projects-preview-section"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -172,31 +177,39 @@ const Home = () => {
       >
         <h2>Featured Projects</h2>
         <div className="projects-grid">
-          {[1, 2, 3].map((item) => (
-            <motion.div 
-              className="project-card" 
-              key={item}
-              whileHover={{ 
+          {/* {featuredProjects.map((project, index) => (
+            <motion.div
+              className="project-card"
+              key={index}
+              whileHover={{
                 y: -10,
-                boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.2)"
+                boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.2)",
               }}
               transition={{ duration: 0.3 }}
             >
-              <div className="project-placeholder"></div>
+              <img
+                src={project.image}
+                alt={project.title}
+                className="project-image"
+              />
               <div className="project-info">
-                <h3>Project {item}</h3>
-                <p>Brief description of project goes here.</p>
-                <Link to="/portfolio" className="project-link">View Details</Link>
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+                <Link to="/projects" className="project-link">
+                  View Details
+                </Link>
               </div>
             </motion.div>
-          ))}
+          ))} */}
         </div>
         <div className="view-all-container">
-          <Link to="/portfolio" className="btn">View All Projects</Link>
+          <Link to="/projects" className="btn">
+            View All Projects
+          </Link>
         </div>
       </motion.section>
 
-      <motion.section 
+      <motion.section
         className="contact-preview"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -207,17 +220,17 @@ const Home = () => {
         <h2>Let's Connect</h2>
         <p>Interested in working together? Feel free to reach out!</p>
         <div className="contact-icons">
-          <motion.a 
-            href="mailto:tommyhuynh02n@gmail.com" 
+          <motion.a
+            href="mailto:tommyhuynh02n@gmail.com"
             whileHover={{ scale: 1.2 }}
             transition={{ duration: 0.3 }}
             aria-label="Email"
           >
             <i className="fas fa-envelope"></i>
           </motion.a>
-          <motion.a 
-            href="https://www.linkedin.com/in/tommy-huynh-029a341a9" 
-            target="_blank" 
+          <motion.a
+            href="https://www.linkedin.com/in/tommy-huynh-029a341a9"
+            target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.2 }}
             transition={{ duration: 0.3 }}
@@ -225,9 +238,9 @@ const Home = () => {
           >
             <i className="fab fa-linkedin-in"></i>
           </motion.a>
-          <motion.a 
-            href="https://github.com/tommyh2o" 
-            target="_blank" 
+          <motion.a
+            href="https://github.com/tommyh2o"
+            target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.2 }}
             transition={{ duration: 0.3 }}
@@ -239,7 +252,9 @@ const Home = () => {
       </motion.section>
 
       <footer className="footer">
-        <p>&copy; {new Date().getFullYear()} Tommy Huynh. All rights reserved.</p>
+        <p>
+          &copy; {new Date().getFullYear()} Tommy Huynh. All rights reserved.
+        </p>
       </footer>
     </div>
   );
