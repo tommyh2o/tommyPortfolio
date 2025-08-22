@@ -4,6 +4,7 @@ import { Parallax } from "react-parallax";
 import { motion } from "framer-motion";
 import Header from "./components/header";
 import Portfolio from "./components/portfolio";
+import Contact from "./components/contact";
 import Projects from "./components/projects";
 import SeattleSkyline from "./img/SeattleSkyline.jpg";
 import profilePic from "./img/homePhoto.jpg";
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/contact" element={<Contact />} />
           {/* <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} /> */}
         </Routes>
@@ -165,58 +167,7 @@ const Home = () => {
             </div>
           ))}
         </div>
-      </motion.section>
 
-      {/* --- Featured Projects Section --- */}
-      <motion.section
-        className="projects-preview-section"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <h2>Featured Projects</h2>
-        <div className="projects-grid">
-          {/* {featuredProjects.map((project, index) => (
-            <motion.div
-              className="project-card"
-              key={index}
-              whileHover={{
-                y: -10,
-                boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.2)",
-              }}
-              transition={{ duration: 0.3 }}
-            >
-              <img
-                src={project.image}
-                alt={project.title}
-                className="project-image"
-              />
-              <div className="project-info">
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-                <Link to="/projects" className="project-link">
-                  View Details
-                </Link>
-              </div>
-            </motion.div>
-          ))} */}
-        </div>
-        <div className="view-all-container">
-          <Link to="/projects" className="btn">
-            View All Projects
-          </Link>
-        </div>
-      </motion.section>
-
-      <motion.section
-        className="contact-preview"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        id="contact"
-      >
         <h2>Let's Connect</h2>
         <p>Interested in working together? Feel free to reach out!</p>
         <div className="contact-icons">

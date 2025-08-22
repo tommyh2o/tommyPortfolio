@@ -1,0 +1,87 @@
+/* Center form vertically and horizontally */
+.contact-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; /* almost full viewport height */
+    padding: 1rem;
+  }
+  
+  /* Form styling */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+    padding: 2rem;
+    background-color: #fff; /* white form background */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    color: #000; /* text inside form */
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Inputs and textarea */
+  .contact-form input,
+  .contact-form textarea {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    resize: vertical;
+    background-color: #fff; /* white input background */
+    color: #000; /* input text color */
+  }
+  
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder {
+    color: #aaa;
+  }
+  
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    outline: 2px solid #007acc;
+  }
+  
+  /* Submit button */
+  .contact-form button {
+    padding: 0.75rem;
+    background-color: #007acc !important;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+  
+  .contact-form button:hover {
+    background-color: #005fa3 !important;
+    transform: scale(1.05);
+  }
+  
+  /* Status message */
+  .contact-form p {
+    margin-top: 1rem;
+    font-weight: 500;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    .contact-form {
+      padding: 1.5rem;
+    }
+  
+    .contact-form input,
+    .contact-form textarea {
+      font-size: 0.95rem;
+      padding: 0.65rem;
+    }
+  
+    .contact-form button {
+      padding: 0.65rem;
+      font-size: 0.95rem;
+    }
+  }
+  
